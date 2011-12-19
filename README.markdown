@@ -9,7 +9,25 @@ Project goal is to provide a easy way to use rabbitMQ:
 
 # Usage
 
+	var rabbitHub = require('rabbitmq-nodejs-client');
 
+	var subHub = rabbitHub.create( { task: 'sub' } );
+    subHub.on('connection', function(hub) {
+
+        hub.on('message', function(msg) {
+            console.log(msg);
+        }.bind(this));
+
+    };
+    subHub.connect();
+
+    var pubHub = rabbitHub.create( { task: 'pub' } );
+    pubHub.on('connection', function(hub) {
+
+        hub.send('Hello World!');
+
+    };
+    pubHub.connect();
 
 
 # License
