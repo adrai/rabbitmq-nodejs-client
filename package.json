@@ -1,0 +1,14 @@
+{
+  "author": "Adriano Raiano"
+  , "name": "rabbitmq-nodejs-client"
+  , "version": "0.0.1"
+  , "private": false
+  , "main": "index.js"
+  , "engines": {
+        "node": "~v0.6.5"
+    }
+  , "dependencies": {
+      "amqp": ">= 0.0.1"
+    }
+  , "devDependencies": {}
+}
