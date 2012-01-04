@@ -18,7 +18,7 @@ Project goal is to provide a easy way to use rabbitMQ:
             console.log(msg);
         }.bind(this));
 
-    };
+    });
     subHub.connect();
 
     var pubHub = rabbitHub.create( { task: 'pub' } );
@@ -26,13 +26,13 @@ Project goal is to provide a easy way to use rabbitMQ:
 
         hub.send('Hello World!');
 
-    };
+    });
     pubHub.connect();
 
 
 # License
 
-Copyright (c) 2011 Adriano Raiano
+Copyright (c) 2012 Adriano Raiano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
