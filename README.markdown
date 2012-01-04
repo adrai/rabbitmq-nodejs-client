@@ -7,6 +7,10 @@ Project goal is to provide a easy way to use rabbitMQ:
 - publish/subscribe: pub sockets publish to a rendezvous point; all sub sockets connected to the rendezvous point receive the messages.
 - publish/subscribe durable: pub sockets publish to a rendezvous point; all sub sockets connected to the rendezvous point receive the messages with an own queue.
 
+# Installation
+
+    $ npm install rabbitmq-nodejs-client
+
 # Usage
 
 	var rabbitHub = require('rabbitmq-nodejs-client');

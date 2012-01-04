@@ -1,14 +1,20 @@
 {
-  "author": "adrai"
-  , "name": "rabbitmq-nodejs-client"
-  , "version": "0.0.1"
-  , "private": false
-  , "main": "index.js"
-  , "engines": {
-        "node": "~v0.4.12"
-    }
-  , "dependencies": {
-      "amqp": ">= 0.0.1"
-    }
-  , "devDependencies": {}
+  "author": "adrai",
+  "name": "rabbitmq-nodejs-client",
+  "version": "0.0.2",
+  "private": false,
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.4.12"
+  },
+  "dependencies": {
+    "amqp": ">= 0.0.1"
+  },
+  "devDependencies": {},
+  "description": "rabbitmq client for node.js",
+  "homepage": "https://github.com/adrai/rabbitmq-nodejs-client",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adrai/rabbitmq-nodejs-client.git"
+  }
 }
