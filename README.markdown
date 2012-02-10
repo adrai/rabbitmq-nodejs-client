@@ -15,7 +15,7 @@ Project goal is to provide a easy way to use rabbitMQ:
 
 	var rabbitHub = require('rabbitmq-nodejs-client');
 
-	var subHub = rabbitHub.create( { task: 'sub' } );
+	var subHub = rabbitHub.create( { task: 'sub', channel: 'myChannel' } );
     subHub.on('connection', function(hub) {
 
         hub.on('message', function(msg) {
@@ -25,7 +25,7 @@ Project goal is to provide a easy way to use rabbitMQ:
     });
     subHub.connect();
 
-    var pubHub = rabbitHub.create( { task: 'pub' } );
+    var pubHub = rabbitHub.create( { task: 'pub', channel: 'myChannel' } );
     pubHub.on('connection', function(hub) {
 
         hub.send('Hello World!');
