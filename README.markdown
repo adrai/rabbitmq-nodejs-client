@@ -6,12 +6,13 @@ Project goal is to provide a easy way to use rabbitMQ:
 
 - publish/subscribe: pub sockets publish to a rendezvous point; all sub sockets connected to the rendezvous point receive the messages.
 - publish/subscribe durable: pub sockets publish to a rendezvous point; all sub sockets connected to the rendezvous point receive the messages with an own queue.
+- task/work: task sockets publish to a rendezvous point; all work sockets connected to the rendezvous point receive the messages with an same queue.
 
 # Installation
 
     $ npm install rabbitmq-nodejs-client
 
-# Usage
+# Pub/Sub usage
 
 	var rabbitHub = require('rabbitmq-nodejs-client');
 
@@ -33,10 +34,47 @@ Project goal is to provide a easy way to use rabbitMQ:
     });
     pubHub.connect();
 
+# Task/Worker usage
+
+    var rabbitHub = require('rabbitmq-nodejs-client');
+
+    var taskHub = rabbitHub.create( { task: 'task', channel: 'myChannel' } );
+    taskHub.on('connection', function(hub) {
+
+      var i = 0;
+      setInterval(function() {
+        hub.send('Hello World! ' + i);
+        i++;
+      }, 1000);
+
+    });
+    taskHub.connect();
+
+    //multiple instances of workers
+    var rabbitHub = require('rabbitmq-nodejs-client');
+
+    var workerHub = rabbitHub.create( { task: 'worker', channel: 'myChannel' } );
+    workerHub.on('connection', function(hub) {
+
+      hub.on('message', function(msg) {
+        console.log(msg);
+
+        setTimeout(function() {
+          hub.ack();
+        }, 2000);
+      }.bind(this));
+
+    });
+    workerHub.connect();
+
+## v0.1.0
+
+- added new worker and task adapter
+
 
 # License
 
-Copyright (c) 2012 Adriano Raiano
+Copyright (c) 2013 Adriano Raiano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
