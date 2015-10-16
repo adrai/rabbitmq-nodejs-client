@@ -1,3 +1,5 @@
+# NOT MAINTAINED ANYMORE!
+
 # Introduction
 
 This project is inspirated by [squaremo](https://github.com/squaremo/rabbit.js).
